@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+        Prueba de funcionamiento de formularios
+{% endblock %}
+{% block estilos %}
+         <link rel="stylesheet" type="text/css" href="{% static 'css/ink.css' %}">
+         <link rel="stylesheet" type="text/css" href="{% static 'css/blitzer/jquery-ui.css' %}">
+         <link rel="stylesheet" href="{% static 'css/main.css'%}"/>
+        <!--[if IE 7 ]>
+            <link rel="stylesheet" href=" {% static 'css/ink-ie7.css' %} type="text/css" media="screen" title="no title" charset="utf-8">
+        <![endif]-->
+{% endblock %}
+{% block js %}
+        <script type="text/javascript" src= "{% static 'js/holder.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/ink.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/ink-ui.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/autoload.js' %}"></script>
+        <script type="text/javascript" src="{% static  'js/html5shiv.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/jquery-ui.js'%}"></script>
+{% endblock %}
+{% block body %}
+     <!--#EDEDED-->
+        <div class="ink-grid">
+            <form action="auto" method="post">
+                {% csrf_token %}
+                <input type="text" id="txtIngreso1" placeholder="Ingrese valor 1" name="txtIngreso1" value="2"/>
+                <input type="text" id="txtIngreso2" placeholder="Ingrese valor 2" name="txtIngreso2" value="2"/>
+                <input type="text" id="txtSalida" value="{{suma}}"/>
+                <input type="submit" value="Sumar"/>
+            </form>
+        </div>
+
+{% endblock %}
+{% comment %}
+         <!--&lt;!&ndash;{% block header %}&ndash;&gt;-->
+                    <!--&lt;!&ndash;<header>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<h1>Sistema de Cobros v1.0 <small>Cuerpo de Bomberos</small> </h1>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<nav class="ink-navigation vspace">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<ul class = "menu horizontal red rounded shadowed">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li><a href="#"><i class="icon-sitemap"> </i>Mantenimiento <i class="icon-caret-down"> </i></a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<ul class="submenu">&ndash;&gt;-->
+                                   <!--&lt;!&ndash;<li><a href="#"> Contribuyentes  </a></li>&ndash;&gt;-->
+                                   <!--&lt;!&ndash;<li><a href="#"> Ciudadela </a></li>&ndash;&gt;-->
+                                   <!--&lt;!&ndash;<li><a href="#"> Aseguradoras </a></li>&ndash;&gt;-->
+                                   <!--&lt;!&ndash;<li><a href="#"> Vehículos </a></li>&ndash;&gt;-->
+                                   <!--&lt;!&ndash;<li><a href="#"> Locales </a></li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<li><a href="#"><i class="icon-exchange"> </i>Transacción {{user.username}}<i class="icon-caret-down"> </i></a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<ul class="submenu">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<li><a href="#"><i class="icon-time"> </i>Deudas</a></li>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<li><a href="#"><i class="icon-money"> </i>Cobros</a></li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<li><a href="#"><i class="icon-search"> </i>Inspección</a></li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<li><a href="#"><i class="icon-bar-chart"> </i>Reportería</a></li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<li><a href="#"><i class="icon-wrench"> </i>Parámetros <i class="icon-caret-down"></i></a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<ul class="submenu">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<li><a href="#"> Recargas </a></li>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<li><a href="#">Organización </a></li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<li class="push-right">&ndash;&gt;-->
+                              <!--&lt;!&ndash;<a href="#"><i class="icon-user">  </i> {{user.username|capfirst}}</a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<ul class="submenu">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<li><a href="{% url 'logout'%}"><i class="icon-signout"> </i> Salir </a></li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                             <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</nav>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</header>&ndash;&gt;-->
+                <!--&lt;!&ndash;{% endblock %}&ndash;&gt;-->
+                <!--{% block section %}-->
+                <!--<section class="ink-container">-->
+                    <!--<div class="ui-widget">-->
+                      <!--<label for="ciudadelas">Ciudadela: </label>-->
+                      <!--<input id="ciudadelas">-->
+                    <!--</div>-->
+                    <!--<script>-->
+                        <!--$(function() {-->
+                          <!--$("#ciudadelas").autocomplete({-->
+                            <!--source: "/api/get_Ciudadela/",-->
+                            <!--minLength: 0-->
+                          <!--});-->
+                        <!--});-->
+                    <!--</script>-->
+                <!--</section>-->
+                <!--{% endblock %}-->
+                <!--&lt;!&ndash;{% block footer %}&ndash;&gt;-->
+                    <!--&lt;!&ndash;<footer>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="ink-grid">&ndash;&gt;-->
+                               <!--&lt;!&ndash;<p>Copyright&copy; 2014 Todos los derechos Reservados </p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</footer>&ndash;&gt;-->
+                <!--&lt;!&ndash;{% endblock %}&ndash;&gt;-->
+{% endcomment %}

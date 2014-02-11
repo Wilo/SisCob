@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %} Siscobros - Principal {% endblock %}
+{% block estilos %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/ink.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/blitzer/jquery-ui.css' %}">
+        <!--[if IE 7 ]>
+            <link rel="stylesheet" href=" {% static 'css/ink-ie7.css' %} type="text/css" media="screen" title="no title" charset="utf-8">
+        <![endif]-->
+{% endblock %}
+{% block js %}
+        <script type="text/javascript" src= "{% static 'js/holder.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/ink.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/ink-ui.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/autoload.js' %}"></script>
+        <script type="text/javascript" src="{% static  'js/html5shiv.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/vendor/jquery-ui.js'%}"></script>
+{% endblock %}
+{% block body %}
+
+       <div class="ink-grid">
+                {% block header %}
+                    <header>
+                        <h1>Sistema de Cobros v1.0 <small>Cuerpo de Bomberos</small> </h1>
+                        <nav class="ink-navigation vspace">
+                            <ul class = "menu horizontal red rounded shadowed">
+                                <li><a href="#"><i class="icon-sitemap"> </i>Mantenimiento <i class="icon-caret-down"> </i></a>
+                                <ul class="submenu">
+                                   <li><a href="#"> Contribuyentes  </a></li>
+                                   <li><a href="#"> Ciudadela </a></li>
+                                   <li><a href="#"> Aseguradoras </a></li>
+                                   <li><a href="#"> Vehículos </a></li>
+                                   <li><a href="#"> Locales </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#"><i class="icon-exchange"> </i>Transacción <i class="icon-caret-down"> </i></a>
+                                <ul class="submenu">
+                                    <li><a href="#"><i class="icon-time"> </i>Deudas</a></li>
+                                    <li><a href="#"><i class="icon-money"> </i>Cobros</a></li>
+                                </ul>
+                                </li>
+                            <li><a href="#"><i class="icon-search"> </i>Inspección</a></li>
+                            <li><a href="#"><i class="icon-bar-chart"> </i>Reportería</a></li>
+                            <li><a href="#"><i class="icon-wrench"> </i>Parámetros <i class="icon-caret-down"></i></a>
+                                <ul class="submenu">
+                                    <li><a href="#"> Recargas </a></li>
+                                    <li><a href="#">Organización </a></li>
+                                </ul>
+                            </li>
+                            <li class="push-right">
+                              <a href="#"><i class="icon-user">  </i> Bienvenido {{usuario |capfirst}}</a>
+                                <ul class="submenu">
+                                    <li><a href="{% url 'logout'%}"><i class="icon-signout"> </i> Salir </a></li>
+                                </ul>
+                             </li>
+                            </ul>
+                        </nav>
+                    </header>
+                {% endblock %}
+                {% block section %}
+
+                    <div id="tabs">
+                        <ul>
+                            <li><a href="#fragment-1">Consulta</a></li>
+                            <li><a href="#fragment-2">Pagos</a></li>
+                        </ul>
+                        <div id="fragment-1">
+                            <form action="">
+
+                            </form>
+                        </div>
+                        <div id="fragment-2">
+
+                        </div>
+                      </div>
+
+           <script>
+               $( "#tabs" ).tabs({ collapsible: true
+               });
+           </script>
+                {% endblock %}
+            </div>
+              {% block footer %}
+                    <footer class="bottom bottom">
+
+				        <p class="content-center vspace">Copyright &copy; 2014 Todos los derechos reservados</p>
+
+		            </footer>
+                {% endblock %}
+             {% endblock %}

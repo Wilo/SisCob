@@ -1,0 +1,71 @@
+/**
+ *   
+ */
+$Rojo: #BE1C1C;
+$Rojo-bootstrap: #d9534f;
+.cabecera{
+  background: #444;
+  color: #ccc;
+  padding: 1.5em;
+}
+#top-bar{
+  position: fixed;
+  top: 0; 
+  left: 0;
+  right: 0;
+  background: $Rojo;
+  -webkit-box-shadow: '0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
+  -moz-box-shadow: '0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
+  box-shadow: '0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
+  z-index: 100;
+  -webkit-transform: scale3d(1, 1, 1);
+}
+.pie{
+  text-align:center;
+}
+.box{
+  border-radius: 0.3em;
+border-width: 1px;
+border-style: solid;
+border-color: #888;
+border-color: rgba(0, 0, 0, 0.3);
+-webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+color: #444;
+color: rgba(0, 0, 0, 0.8);
+padding: 1.42857em;
+margin: 0 0 1.5em 0;
+}
+.caja{
+  border-radius: 4px;
+-webkit-box-shadow: 0 2px 3px 0 #dddddd;
+-moz-box-shadow: 0 2px 3px 0 #dddddd;
+box-shadow: 0 2px 3px 0 #dddddd;
+border: 1px solid #BBB;
+background-color: #FFF;
+padding: 1em;
+margin-top: 1em;
+}
+body {
+                background: #ededed;
+            }
+            header {
+                padding: 2em 0;
+                margin-bottom: 2em;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            header h1 small:before  {
+                content: "|";
+                margin: 0 0.5em;
+                font-size: 1.6em;
+            }
+            footer {
+                background: #ccc;
+                color: #0003;
+            }
+            footer p {
+                padding: 0.5em 1em 0.5em 0;
+                margin: 0;        
+            }

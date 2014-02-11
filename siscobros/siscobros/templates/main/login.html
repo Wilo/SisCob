@@ -11,22 +11,25 @@
         <script type="text/javascript" src="{% static 'js/ink-ui.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/autoload.js' %}"></script>
         <script type="text/javascript" src="{% static  'js/html5shiv.js' %}"></script>
+        <script type="text/javascript" src="{% static  'js/vendor/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static  'js/formularios.js' %}"></script>
+
 {% endblock %}
 {% block body %}
         <div class="container">
          {% if not user.is_authenticated %}
             <section id="content">
-               <form action="." method="POST">
+               <form action="#" method="POST">
                    {% csrf_token %}
                    <h1>Iniciar Sesión</h1>
                     <div>
-                        <input type="text" placeholder="Nombre de Usuario" required="" id="username" name="username" />
+                        {{login.usuario}}
                     </div>
                     <div>
-                        <input type="password" placeholder="Contraseña" required="" id="password" name="password"/>
+                        {{login.password}}
                     </div>
                     <div>
-                        <button type="submit" class="ink-button red"><i class="icon-signin"> </i> Entrar </button>
+                        <a onClick="enviarajax()" class="ink-button red"><i class="icon-signin"> </i> Entrar </a>
                     </div>
                </form>
              {% else %}
@@ -40,4 +43,28 @@
                     </div>
              {% endif %}
         </div>
+{% endblock %}
+{% block script %}
+    <script>
+        function enviarajax(){
+                var data = new FormData();
+                data.append("usuario", $('#id_usuario').val());
+                data.append("password", $('#id_password').val());
+                $.ajax({
+                    type: "POST",
+                    dataType: 'json',
+                    url: '{%url "enviar_ajax"%}',
+                    data: data,
+                    success: function(data){
+                        alert(data.usuario)
+                        alert(data.password)
+                    },
+                    error: function(data){
+                        alert("Algo salio mal")                                                                  
+                    },
+                    processData: false,
+                    contentType: false
+                })
+            }
+    </script>
 {% endblock %}

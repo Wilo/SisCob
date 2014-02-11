@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.template import RequestContext
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import *
-from .forms import DemoForm
+from .forms import *
 import django
 import json
 from django.http import HttpRequest
@@ -15,7 +15,16 @@ from django.http import HttpRequest
 #Ventana de Inicio de sesion
 
 def index_view(request):
-    return render_to_response('main/login.html', context_instance=RequestContext(request))
+    login = LoginForm
+    return render(request, 'main/login.html',locals())
+
+def enviar_ajax(request):
+    usuario = request.POST['usuario']
+    password = request.POST['password']
+    data = {'usuario':usuario,'password':password}
+    return HttpResponse(json.dumps(data),mimetype='application/json')
+
+
 @login_required(login_url="/")
 def main_view(request):
     usuario = request.user

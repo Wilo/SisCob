@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 import settings
+from apps.main.views import *
 
 from django.contrib import admin
 admin.autodiscover()
@@ -9,8 +10,9 @@ urlpatterns = patterns('',
     # url(r'^$', 'siscobros.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('siscobros.apps.main.urls')),
-    url(r'^$', 'django.contrib.auth.views.login',{ 'template_name': 'main/login.html'}, name="login"),
+    url(r'^$', index_view, name='index_view'),
+    url(r'^enviar-ajax/$', enviar_ajax, name='enviar_ajax'),
+    
     url(r'^logout/', 'django.contrib.auth.views.logout_then_login', name="logout"),
 
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT}),

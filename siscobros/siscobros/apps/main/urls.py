@@ -2,6 +2,7 @@ from django.conf.urls import patterns
 from django.conf.urls import url
 
 urlpatterns = patterns('siscobros.apps.main.views',
+					   url(r'^$', index_view, name='index_view'),
                        url(r'^index/', 'main_view', name="vista_principal"),
                        url(r'^demo/','Demo_view',name="demo"),
                        url(r'^auto/','autocomplete',name='auto'),
